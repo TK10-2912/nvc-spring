@@ -4,6 +4,7 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.autoconfigure.jdbc.DataSourceAutoConfiguration;
+import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.lang.NonNull;
@@ -16,13 +17,13 @@ import vn.payos.PayOS;
 @Configuration
 public class SpringbootBackendPayosApplication implements WebMvcConfigurer {
 
-	@Value("${PAYOS_CLIENT_ID}")
+	@Value("${PAYOS.CLIENT_ID}")
 	private String clientId;
 
-	@Value("${PAYOS_API_KEY}")
+	@Value("${PAYOS.API_KEY}")
 	private String apiKey;
 
-	@Value("${PAYOS_CHECKSUM_KEY}")
+	@Value("${PAYOS.CHECKSUM_KEY}")
 	private String checksumKey;
 
 	@Override

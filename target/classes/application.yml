@@ -1,0 +1,13 @@
+server:
+  port: 8080
+
+spring:
+  data:
+    mongodb:
+      uri: mongodb+srv://ttkhk20:ttkhk20cht@kien.pab3o.mongodb.net/nvc?retryWrites=true&w=majority
+
+
+PAYOS:
+  CLIENT_ID: a17de952-12de-4d07-ab68-dc8d954f0619
+  API_KEY: 1418e8da-672b-4773-b46c-5dee1cd1b0de
+  CHECKSUM_KEY: ec33bef9965458820fc1c1d773c0d13fbba0b9e332bec3778060b19450e26182

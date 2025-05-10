@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.List;
 
 @RestController
@@ -30,7 +31,11 @@ public class WebhookController {
         transaction.setUnit(values.get(2) != null ? values.get(2) : "");
         transaction.setAccountNumber(values.get(3) != null ? values.get(3) : "");
         transaction.setDepscription(values.get(4) != null ? values.get(4) : "");
-        transaction.setCreatedAt(LocalDateTime.parse(values.get(5) != null ? values.get(5) : ""));
+        transaction.setCreatedAt(
+                (values != null && values.size() > 5 && values.get(5) != null && !values.get(5).isEmpty())
+                        ? LocalDateTime.parse(values.get(5), DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss"))
+                        : null
+        );
         transaction.setCodePaymentLink(values.get(6) != null ? values.get(6) : "");
         transaction.setReferenceCode(values.get(7) != null ? values.get(7) : "");
         transaction.setCodeBank(values.get(8) != null ? values.get(8) : "");

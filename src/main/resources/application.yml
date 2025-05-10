@@ -4,8 +4,8 @@ server:
 spring:
   data:
     mongodb:
-      uri: mongodb+srv://ttkhk20:ttkhk20cht@kien.pab3o.mongodb.net/
-      database: nvc
+      uri: mongodb+srv://ttkhk20:ttkhk20cht@kien.pab3o.mongodb.net/nvc?retryWrites=true&w=majority
+
 
 PAYOS:
   CLIENT_ID: a17de952-12de-4d07-ab68-dc8d954f0619

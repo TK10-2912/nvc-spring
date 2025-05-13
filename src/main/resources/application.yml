@@ -8,7 +8,7 @@ spring:
 
 
 PAYOS:
-  CLIENT_ID: ceaea0e8-08ac-42fb-84e5-b5eefa78a5afv
+  CLIENT_ID: ceaea0e8-08ac-42fb-84e5-b5eefa78a5af
   API_KEY: e0180f71-7102-4eb1-a1b6-8ff6b277cd2b
   CHECKSUM_KEY: 86f943ee29a1bfa2c7ed555fc27bae1f10525e0e630821731b565e111615ace4
 

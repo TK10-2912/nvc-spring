@@ -6,6 +6,7 @@ import com.springboot.app.service.serviceIml.TransactionService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.mongodb.core.aggregation.ConvertOperators;
 import org.springframework.http.ResponseEntity;
+import org.springframework.messaging.simp.SimpMessagingTemplate;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -21,6 +22,8 @@ import java.util.List;
 public class WebhookController {
     @Autowired
     private TransactionService transactionService;
+    @Autowired
+    private SimpMessagingTemplate messagingTemplate;
     @RequestMapping(value = "/receive", method = RequestMethod.POST)
     public ResponseEntity<String> receiveWebhook(@RequestBody WebhookData data) {
         System.out.println(data);
@@ -46,6 +49,7 @@ public class WebhookController {
         transaction.setAccoutNumberReal(values.get(13) != null ? values.get(13) : "");
         System.out.println("transaction" + transaction);
         this.transactionService.createTransaction(transaction);
+        messagingTemplate.convertAndSend("/topic/order/" + transaction.getCodePaymentLink(), "Thành công");
         // Lưu vào database
         return ResponseEntity.ok("Received");
     }
